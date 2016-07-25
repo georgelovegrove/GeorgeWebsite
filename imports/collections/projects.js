@@ -12,14 +12,12 @@ Meteor.methods({
 
 export const Projects = new Mongo.Collection('projects');
 
-/*
 
+/* Data for project insertions
 - project name
 - technologies used
 - short description
 - image link
 - date posted
 - relative project url
-- userID (who owns it)
-
-*/
+- userID (who owns it) */
