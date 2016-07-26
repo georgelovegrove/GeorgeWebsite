@@ -1,19 +1,16 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { Router, browserHistory } from 'react-router';
+import thunk from 'redux-thunk';
 
 import reducers from './reducers/index';
-import routes from './routes';
 
-
+// TODO apply middleware for logger etc when needed
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
-const store = (
-	<Provider store={createStoreWithMiddleware(reducers)}>
-  		<Router history={browserHistory} routes={routes} />
-  	</Provider>
-);
+export default () => {
+	const store = createStore(reducers, applyMiddleware(thunk));
 
-export default store;
+	return store;
+};

@@ -1,29 +1,24 @@
 import React, { Component } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
+import { connect } from 'react-redux';
 import { Meteor } from 'meteor/meteor';
 
 import ProjectList from './project_list';
+import { userLogout } from '../actions/user_actions';
 
 class Homepage extends Component {
 
 	onLogout(event) {
 		event.preventDefault();
 
-		Meteor.logout((er)=>{
-			if(er) {
-				// TODO Add error handling
-				console.log('Failed to logout');
-			} else {
-				console.log('User logged out');
-				// TODO Ensure state is automatically updated and relevant fields don't appear
-			}
-		});
+		this.props.userLogout();
 	}
 
 	render() {
 
+		console.log('homepage props ', this.props);
+
 		// TODO Input needs cleaning up and should show nothing when logged out
-		const loggedIn = (Meteor.user()) ? <input value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout} /> : "No user logged in";
+		const loggedIn = (this.props.meteorUser) ? <input value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout.bind(this)} /> : "No user logged in";
 
 		return (
 			<div>
@@ -36,8 +31,8 @@ class Homepage extends Component {
 	}
 }
 
-export default createContainer(() => {
-	return {
-		user: Meteor.user(),
-	}
-}, Homepage);
+const mapStateToProps = state => {
+	return { projects: state.projects, user: state.user };
+};
+
+export default connect(mapStateToProps, { userLogout })(Homepage);

@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
-import ProjectsReducer from './projects_reducer';
+import projectsReducer from './projects_reducer';
 
-const index = combineReducers({
 
-	projects: ProjectsReducer,
+
+export default combineReducers({
+
+	projects: projectsReducer,
 	form: formReducer,
 });
-
-export default index;

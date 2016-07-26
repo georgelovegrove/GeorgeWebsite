@@ -1,98 +1,79 @@
-import React, { Component } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
-import { connect } from 'react-redux';
 import { Meteor } from 'meteor/meteor';
+import React, { Component } from 'react';
 import { browserHistory } from 'react-router';
+import { reduxForm } from 'redux-form';
 
+import { userLogout } from '../actions/user_actions';
 import PageHeader from './page_header';
-
-
 
 class AddProject extends Component {
 
 	onLogout(event) {
 		event.preventDefault();
 
-		Meteor.logout((er)=>{
-			if(er) {
-				// TODO Add error handling
-				console.log('Failed to logout');
-			} else {
-				console.log('User logged out');
-				// TODO Ensure state is automatically updated and relevant fields don't appear
-			}
-		});
+		this.props.userLogout();
 	}
 
-	onSubmit(event) {
+	onSubmit(props) {
 		event.preventDefault();
 
-		const element = $(event.target);
-
-		const project_title = element.find("#project_title").val();
-		const tech_used = element.find("#tech_used").val();
-		const project_url = element.find("#project_url").val();
-		const date_posted = element.find("#date_posted").val();
-		const project_image = element.find("#project_image").val();
-		const project_description = element.find("#project_description").val();
-
-		/*
-		console.log('Project title: ', project_title);
-		console.log('Tech used: ', tech_used);
-		console.log('URL: ', project_url);
-		console.log('Date posted: ', date_posted);
-		console.log('Image: ', project_image);
-		console.log('Project Description: ', project_description);
-		*/
-
-		
+		console.log('Input props ', props);
+		// TODO Handle add project information
 	}
 
 	render() {
 
 		// TODO Input needs cleaning up and should show nothing when logged out
-		const loggedIn = (Meteor.user()) ? <input value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout} /> : "No user logged in";
+		const loggedIn = (this.props.meteorUser) ? <input value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout.bind(this)} /> : "No user logged in";
+
+		const { fields: { project_title, tech_used, project_url, date_posted, project_image, project_description }, handleSubmit } = this.props;
 
 		return (
 			<div>
 				<PageHeader />
 				{ loggedIn }
 				<h4 className="text-center">Add new project</h4>
-				<form onSubmit={this.onSubmit} className="col offset-s4 s4">
+				<form onSubmit={this.onSubmit.bind(this)} className="col offset-s4 s4">
 					<div className="row">
 						<div className="input-field col s12">
 							<label htmlFor="project_title">Email</label>
-							<input id="project_title" type="text" className="validate" />
+							<input type="text" className="validate" {...project_title}/>
+							<div> { project_title.touched ? project_title.error : ''} </div>	
 						</div>
 					</div>
 					<div className="row">
 						<div className="input-field col s12">
 							<label htmlFor="tech_used">Technologies used</label>
-							<input id="tech_used" type="text" className="validate" />
+							<input type="text" className="validate" {...tech_used}/>
+							<div> { tech_used.touched ? tech_used.error : ''} </div>
 						</div>
 					</div>
 					<div className="row">
 						<div className="input-field col s12">
 							<label htmlFor="project_url">Relative project URL</label>
-							<input id="project_url" type="text" className="validate" />
+							<input type="text" className="validate" {...project_url}/>
+							<div> { project_url.touched ? project_url.error : ''} </div>
 						</div>
 					</div>
 					<div className="row">
 						<div className="input-field col s12">
 							<label htmlFor="date_posted">Date posted</label>
-							<input id="date_posted" type="text" className="validate" />
+							<input type="text" className="validate" {...date_posted}/>
+							<div> { date_posted.touched ? date_posted.error : ''} </div>
 						</div>
 					</div>
 					<div className="row">
 						<div className="input-field col s12">
 							<label htmlFor="project_image">Project image</label>
-							<input id="project_image" type="text" className="validate" />
+							<input type="text" className="validate" {...project_image}/>
+							<div> { project_image.touched ? project_image.error : ''} </div>
 						</div>
 					</div>	
 					<div className="row">
 						<div className="input-field col s12">
 							<label htmlFor="project_description">Short project description</label>
-							<input id="project_description" type="text" className="validate" />
+							<input type="text" className="validate" {...project_description}/>
+							<div> { project_description.touched ? project_description.error : ''} </div>
 						</div>
 					</div>														
 					<div className="row">
@@ -104,13 +85,29 @@ class AddProject extends Component {
 	}
 }
 
-export default createContainer(() => {
-	// If user is not logged in redirect to homepage
-	if (Meteor.user() === null) {
-		browserHistory.push('/');
-	}
+AddProject.propTypes = {
+  meteorUser: React.PropTypes.object,
+};
 
-	return {
-		user: Meteor.user(),
-	}
-}, AddProject);
+function validate(values) {
+	const errors = {};
+
+	if (!values.project_title) {	errors.project_title = 'Enter a project title';	}
+	if (!values.tech_used) {	errors.tech_used = 'Enter the technologies used';	}
+	if (!values.project_url) {	errors.project_url = 'Enter the relative project URL';	}
+	if (!values.date_posted) {	errors.date_posted = 'Enter the date the project was developed';	}
+	if (!values.project_image) {	errors.project_image = 'Enter the project image relative URL';	}
+	if (!values.project_description) {	errors.project_description = 'Enter a project description';	}
+
+	return errors;
+}
+
+const mapStateToProps = state => {
+	return { projects: state.projects };
+};
+
+export default reduxForm({
+	fields: ['project_title', 'tech_used', 'project_url', 'date_posted', 'project_image', 'project_description'],
+	form: 'AddProjectForm',
+	validate
+}, mapStateToProps, { userLogout })(AddProject);
