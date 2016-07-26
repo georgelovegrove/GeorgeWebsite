@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 
-import Routes from '../imports/client/routes';
+import store from '../imports/client/store'; 
 
 
 
 Meteor.startup(() => {
-  ReactDOM.render(Routes, document.querySelector('.container'));
+	ReactDOM.render(store, document.querySelector('.container'));
 });
