@@ -9,11 +9,18 @@ import { userLogin } from '../actions/user_actions';
 
 class Login extends Component {
 
+	componentWillMount() {
+
+		// When user accesses page redirect if they are logged in before rendering
+		if (this.props.user) {
+			browserHistory.push('/');
+		}
+	}
+
 	render() {
 
-		// If the user is logged in redirect to homepage
-		// TODO this could be placed somewhere better
-		if (this.props.meteorUser) {
+		// TODO Need to research redirect after ReduxForm submission
+		if (this.props.user) {
 			browserHistory.push('/');
 		}
 
@@ -45,10 +52,6 @@ class Login extends Component {
 		);
 	}
 }
-
-Login.propTypes = {
-  meteorUser: React.PropTypes.object,
-};
 
 function validate(values) {
 	const errors = {};

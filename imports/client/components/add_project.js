@@ -17,7 +17,7 @@ class AddProject extends Component {
 	onSubmit(props) {
 		event.preventDefault();
 
-		if (this.props.meteorUser) {
+		if (this.props.user) {
 			this.props.addProject(props);
 		} else {
 			// TODO Add error handling
@@ -27,7 +27,7 @@ class AddProject extends Component {
 	render() {
 
 		// TODO Input needs cleaning up and should show nothing when logged out
-		const loggedIn = (this.props.meteorUser) ? <input value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout.bind(this)} /> : "No user logged in";
+		const loggedIn = (this.props.user) ? <input value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout.bind(this)} /> : "No user logged in";
 
 		const { fields: { project_title, tech_used, project_url, date_posted, project_image, project_description }, handleSubmit } = this.props;
 
@@ -88,10 +88,6 @@ class AddProject extends Component {
 	}
 }
 
-AddProject.propTypes = {
-	meteorUser: React.PropTypes.object,
-};
-
 function validate(values) {
 	const errors = {};
 
@@ -106,7 +102,7 @@ function validate(values) {
 }
 
 const mapStateToProps = state => {
-	return { projects: state.projects };
+	return { projects: state.projects, user: state.user };
 };
 
 export default reduxForm({

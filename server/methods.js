@@ -10,7 +10,7 @@ Meteor.methods({
 				
 		const projectID = Projects.insert({
 			owner: Meteor.userId(),
-			project_title: params.project_image,
+			project_title: params.project_title,
 			tech_used: params.tech_used,
 			date_posted: params.date_posted,
 			project_url: params.project_url,

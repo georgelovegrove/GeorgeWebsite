@@ -1,7 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-
-// User actions are side effects. The account system domain state is not integrated into Redux state, 
-// instead access to Meteor.user() is achieved through react-meteor-data containers.
+import { Tracker } from 'meteor/tracker';
 
 export function userLogout() {
 	return () => {
@@ -27,3 +25,14 @@ export function userLogin(props) {
 		});
 	}
 };
+
+export function loadUser() {
+    return dispatch => {
+        Tracker.autorun(() =>{
+            dispatch({
+                type: 'USER_DATA',
+                payload: Meteor.user() ? Meteor.user() : null
+            });
+        });
+    }
+}

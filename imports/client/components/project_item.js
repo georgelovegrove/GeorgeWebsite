@@ -4,15 +4,16 @@ class ProjectItem extends Component {
 
   render() {
 
-    const projectItem = this.props;
+    const item = this.props;
 
     return (
       <div>
-        <div> Project title: { projectItem.project_title } </div>
-        <div> Tech used: { projectItem.tech_used } </div>
-        <div> Date posted: { projectItem.date_posted } </div>
-        <div> Image URL: { projectItem.project_image } </div>
-        <div> Description: { projectItem.project_description } </div>      
+        <div> Project title: { item.project_title } </div>
+        <div> Tech used: { item.tech_used } </div>
+        <div> Project URL: { item.project_url } </div>
+        <div> Date posted: { item.date_posted } </div>
+        <div> Image URL: { item.project_image } </div>
+        <div> Description: { item.project_description } </div>
         <br/>
       </div>
     );

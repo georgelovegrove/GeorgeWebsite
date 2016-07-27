@@ -21,17 +21,18 @@ class Homepage extends Component {
 	render() {
 
 		console.log('Homepage props ', this.props);
-		
+
 		// TODO Input type needs cleaning up and should show nothing when logged out
-		const loggedIn = (this.props.meteorUser) ?  <div><button value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout.bind(this)}>Logout</button>
-													<button value="Logout" type="submit" className="btn btn-primary" onClick={this.addProject}>Add project</button></div>
-													: "No user logged in";
+		const loggedIn = (this.props.user) ?  
+			<div><button value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout.bind(this)}>Logout</button>
+			<button value="Logout" type="submit" className="btn btn-primary" onClick={this.addProject}>Add project</button></div>
+			: "No user logged in";
 
 		return (
 			<div>
 				<div> Homepage header </div>
 				{ loggedIn }
-				<ProjectList projects={this.props.projectsList} />
+				<ProjectList projects={this.props.projects} />
 			</div>
 		);
 	}

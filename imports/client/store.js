@@ -7,10 +7,10 @@ import reducers from './reducers/index';
 
 // TODO apply middleware for logger etc when needed
 
-//const createStoreWithMiddleware = applyMiddleware()(createStore);
+const middlewares = [
+    thunk
+];
 
-export default () => {
-	const store = createStore(reducers, applyMiddleware(thunk));
+const store = createStore(reducers, applyMiddleware(...middlewares));
 
-	return store;
-};
+export default store;
