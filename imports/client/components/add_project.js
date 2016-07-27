@@ -4,12 +4,12 @@ import { browserHistory } from 'react-router';
 import { reduxForm } from 'redux-form';
 
 import { userLogout } from '../actions/user_actions';
+import { addProject } from '../actions/project_actions';
 import PageHeader from './page_header';
 
 class AddProject extends Component {
 
-	onLogout(event) {
-		event.preventDefault();
+	onLogout() {
 
 		this.props.userLogout();
 	}
@@ -17,8 +17,11 @@ class AddProject extends Component {
 	onSubmit(props) {
 		event.preventDefault();
 
-		console.log('Input props ', props);
-		// TODO Handle add project information
+		if (this.props.meteorUser) {
+			this.props.addProject(props);
+		} else {
+			// TODO Add error handling
+		}
 	}
 
 	render() {
@@ -33,7 +36,7 @@ class AddProject extends Component {
 				<PageHeader />
 				{ loggedIn }
 				<h4 className="text-center">Add new project</h4>
-				<form onSubmit={this.onSubmit.bind(this)} className="col offset-s4 s4">
+				<form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="col offset-s4 s4">
 					<div className="row">
 						<div className="input-field col s12">
 							<label htmlFor="project_title">Email</label>
@@ -86,7 +89,7 @@ class AddProject extends Component {
 }
 
 AddProject.propTypes = {
-  meteorUser: React.PropTypes.object,
+	meteorUser: React.PropTypes.object,
 };
 
 function validate(values) {
@@ -110,4 +113,4 @@ export default reduxForm({
 	fields: ['project_title', 'tech_used', 'project_url', 'date_posted', 'project_image', 'project_description'],
 	form: 'AddProjectForm',
 	validate
-}, mapStateToProps, { userLogout })(AddProject);
+}, mapStateToProps, { userLogout, addProject })(AddProject);

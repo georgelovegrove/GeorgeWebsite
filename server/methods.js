@@ -7,26 +7,20 @@ import Projects from '../imports/collections/projects';
 Meteor.methods({
 
 	'projects.insert': function(params) {
-		
-		console.log('Params: ', params);
+				
+		const projectID = Projects.insert({
+			owner: Meteor.userId(),
+			project_title: params.project_image,
+			tech_used: params.tech_used,
+			date_posted: params.date_posted,
+			project_url: params.project_url,
+			project_image: params.project_image,
+			project_description: params.project_description
+		});
 
-		if(!params.text) {
-			console.log('Throw an error');
-		}
-
-		// Insert based on params
-		Projects.insert({
-
-			userId: this.userId
-		})
-
-		/* Data for project insertions
-		- project name
-		- technologies used
-		- short description
-		- image link
-		- date posted
-		- relative project url
-		- userID (who owns it) */
+		return Projects.find({ _id: projectID }).fetch();;
 	}
-})
+
+
+});
+

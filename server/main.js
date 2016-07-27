@@ -6,5 +6,13 @@ import './methods';
 
 
 Meteor.startup(() => {
-  // code to run on server at startup
+
+	// Add default admin account if none exist
+	if (Meteor.users.find().count() === 0) {
+	    Accounts.createUser({
+	        email: 'lovegrovegeorge@gmail.com',
+	        password: 'password'
+	    });
+	}
+
 });

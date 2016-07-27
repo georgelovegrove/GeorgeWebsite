@@ -4,10 +4,8 @@ const projectsReducer = (state = [], action) => {
   switch (action.type) {
   	case 'FETCH_PROJECTS':
   		return state;
-  	case 'ADD_PROJECT':
-  		return state;
   	case 'REMOVE_PROJECT':
-  		return state;
+  		return state.filter(id => id !== action.payload);
     default:
     	return state;
   }
