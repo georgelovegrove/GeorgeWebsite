@@ -7,7 +7,7 @@ import userReducer from './user_reducer';
 
 export default combineReducers({
 
-	user: userReducer,
-	projects: projectsReducer,
+	userData: userReducer,
+	projectsData: projectsReducer,
 	form: formReducer,
 });

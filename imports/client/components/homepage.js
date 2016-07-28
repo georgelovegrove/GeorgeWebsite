@@ -5,6 +5,7 @@ import { browserHistory } from 'react-router';
 
 import ProjectList from './project_list';
 import { userLogout } from '../actions/user_actions';
+import { loadProjects } from '../actions/project_actions';
 
 class Homepage extends Component {
 
@@ -23,7 +24,7 @@ class Homepage extends Component {
 		console.log('Homepage props ', this.props);
 
 		// TODO Input type needs cleaning up and should show nothing when logged out
-		const loggedIn = (this.props.user) ?  
+		const loggedIn = (this.props.userData.user) ?  
 			<div><button value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout.bind(this)}>Logout</button>
 			<button value="Logout" type="submit" className="btn btn-primary" onClick={this.addProject}>Add project</button></div>
 			: "No user logged in";
@@ -32,14 +33,14 @@ class Homepage extends Component {
 			<div>
 				<div> Homepage header </div>
 				{ loggedIn }
-				<ProjectList projects={this.props.projects} />
+				{ this.props.projectsData ? <ProjectList projects={this.props.projectsData.projects}/> : '' }
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = state => {
-	return { projects: state.projects, user: state.user };
+	return { projectsData: state.projectsData, userData: state.userData };
 };
 
-export default connect(mapStateToProps, { userLogout })(Homepage);
+export default connect(mapStateToProps, { userLogout, loadProjects })(Homepage);

@@ -9,27 +9,27 @@ import { userLogin } from '../actions/user_actions';
 
 class Login extends Component {
 
-	componentWillMount() {
+	componentDidUpdate() {
 
-		// When user accesses page redirect if they are logged in before rendering
-		if (this.props.user) {
+		// TODO Need to find a way to better check whether a user is logged in before an initial page renders, React router onEnter perhaps?
+
+		// When the page updates if they are logged in then redirect them
+		if (this.props.userData.user) {
+
 			browserHistory.push('/');
 		}
 	}
 
 	render() {
 
-		// TODO Need to research redirect after ReduxForm submission
-		if (this.props.user) {
-			browserHistory.push('/');
-		}
+		console.log('Login render props ', this.props);
 
-		const { fields: { email , password }, handleSubmit } = this.props;
+		const { fields: { email , password }, handleSubmit, userLogin, userData } = this.props;
 
 		return (
 			<div className="row">	
 				<h4 className="text-center">Login</h4>
-				<form onSubmit={handleSubmit(this.props.userLogin)} className="col offset-s4 s4">
+				<form onSubmit={handleSubmit(userLogin)} className="col offset-s4 s4">
 					<div className="row">
 						<div className="input-field col s12">
 							<input type="text" className="validate" {...email}/>
@@ -45,6 +45,7 @@ class Login extends Component {
 						<div> { password.touched ? password.error : ''} </div>
 					</div>
 					<div className="row">
+						<div>{ userData.errorMessage ? userData.errorMessage : '' }</div>
 						<button className="waves-effect waves-light btn btn-block">Submit</button>
 					</div>
 				</form>
@@ -59,18 +60,14 @@ function validate(values) {
 	if (!values.email) {	errors.email = 'Enter an email address';	}
 	if (!values.password) {	errors.password = 'Enter a password';	}
 
+	// TODO More validation checks
+
 	return errors;
 }
 
 const mapStateToProps = state => {
-	return { user: state.user };
+	return { userData: state.userData };
 };
-
-/* Not needed
-const mapDispatchToProps = dispatch => {
-	return bindActionCreators({ userLogin }, dispatch);
-};
-*/
 
 export default reduxForm({
 	fields: ['email', 'password'],

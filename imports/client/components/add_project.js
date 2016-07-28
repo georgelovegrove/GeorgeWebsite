@@ -9,6 +9,8 @@ import PageHeader from './page_header';
 
 class AddProject extends Component {
 
+	// TODO Need to find a good way to redirect for when a user is not logged in, React router onEnter perhaps
+
 	onLogout() {
 
 		this.props.userLogout();
@@ -17,19 +19,24 @@ class AddProject extends Component {
 	onSubmit(props) {
 		event.preventDefault();
 
-		if (this.props.user) {
-			this.props.addProject(props);
-		} else {
-			// TODO Add error handling
+
+		this.props.addProject(props);
+	}
+
+	componentDidUpdate() {
+
+		// When the page updates if they have submitted a form successfully they should be redirected
+		if (this.props.projectsData.redirectUser) {
+			browserHistory.push('/');
 		}
 	}
 
 	render() {
 
 		// TODO Input needs cleaning up and should show nothing when logged out
-		const loggedIn = (this.props.user) ? <input value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout.bind(this)} /> : "No user logged in";
+		const loggedIn = (this.props.userData.user) ? <input value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout.bind(this)} /> : "No user logged in";
 
-		const { fields: { project_title, tech_used, project_url, date_posted, project_image, project_description }, handleSubmit } = this.props;
+		const { fields: { project_title, tech_used, project_url, date_posted, project_image, project_description }, handleSubmit, projectsData } = this.props;
 
 		return (
 			<div>
@@ -80,6 +87,7 @@ class AddProject extends Component {
 						</div>
 					</div>														
 					<div className="row">
+						<div>{ projectsData.errorMessage ? projectsData.errorMessage : '' }</div>
 						<button type="submit" className="waves-effect waves-light btn btn-block">Submit</button>
 					</div>
 				</form>
@@ -98,11 +106,13 @@ function validate(values) {
 	if (!values.project_image) {	errors.project_image = 'Enter the project image relative URL';	}
 	if (!values.project_description) {	errors.project_description = 'Enter a project description';	}
 
+	// TODO Finish validation
+
 	return errors;
 }
 
 const mapStateToProps = state => {
-	return { projects: state.projects, user: state.user };
+	return { projectsData: state.projectsData, userData: state.userData };
 };
 
 export default reduxForm({
