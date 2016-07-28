@@ -23,6 +23,11 @@ class Homepage extends Component {
 
 		console.log('Homepage props ', this.props);
 
+		let removeProjectError;
+		if (this.props.projectsData) {
+			removeProjectError = this.props.projectsData.errorMessage ? <div>{this.props.projectsData.errorMessage}</div> : '';
+		}
+
 		// TODO Input type needs cleaning up and should show nothing when logged out
 		const loggedIn = (this.props.userData.user) ?  
 			<div><button value="Logout" type="submit" className="btn btn-primary" onClick={this.onLogout.bind(this)}>Logout</button>
@@ -33,6 +38,7 @@ class Homepage extends Component {
 			<div>
 				<div> Homepage header </div>
 				{ loggedIn }
+				{ removeProjectError }
 				{ this.props.projectsData ? <ProjectList projects={this.props.projectsData.projects}/> : '' }
 			</div>
 		);

@@ -46,7 +46,7 @@ class AddProject extends Component {
 				<form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="col offset-s4 s4">
 					<div className="row">
 						<div className="input-field col s12">
-							<label htmlFor="project_title">Email</label>
+							<label htmlFor="project_title">Project title</label>
 							<input type="text" className="validate" {...project_title}/>
 							<div> { project_title.touched ? project_title.error : ''} </div>	
 						</div>

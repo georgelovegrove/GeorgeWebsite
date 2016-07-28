@@ -19,6 +19,11 @@ Meteor.methods({
 		});
 
 		return Projects.find({ _id: projectID }).fetch();;
+	},
+
+	'projects.remove': function(projectID) {
+
+		Projects.remove(projectID);
 	}
 
 

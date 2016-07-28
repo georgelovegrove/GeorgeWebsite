@@ -12,13 +12,11 @@ export function addProject(params) {
     } else {
       Meteor.call('projects.insert', params, (error, payload) => {
   		    if (error) {
-  				  console.log('Add project error: ', error);
             dispatch({
               type: 'ADD_PROJECT_ERROR',
               payload: error.reason
             })
           } else {
-            console.log('Project added successfully');
             dispatch({
               type: 'ADD_PROJECT',
               payload: Projects.find().fetch() ? Projects.find().fetch() : []
@@ -29,16 +27,29 @@ export function addProject(params) {
 	};
 }
 
-export function removeProject(params) {
+export function removeProject(removeProject, projectList, projectIndex) {
 	return dispatch => {
-		Meteor.call('projects.remove', params, (error, payload) => {
-	    if (error) {
-			  // TODO Add error handling
-			  console.log('Error: ', error);
-	    } else {
-			  dispatch({ type: 'REMOVE_PROJECT', payload });
-	    }
-		});
+    // Check the user owns the project post
+    if (Meteor.userId() === removeProject.userID) {
+      Meteor.call('projects.remove', removeProject.projectID, (error, payload) => {
+        if (error) {
+          dispatch({
+            type: 'REMOVE_PROJECT_ERROR',
+            payload: error.reason
+          })
+        } else {
+          dispatch({
+            type: 'REMOVE_PROJECT',
+            payload: [ ...projectList.slice(0, projectIndex), ...projectList.slice(projectIndex + 1) ]
+          })
+        }
+      });
+    } else {
+      dispatch({
+        type: 'REMOVE_PROJECT_ERROR',
+        payload: 'You can only remove projects you own'
+      })
+    }
 	};
 }
 
