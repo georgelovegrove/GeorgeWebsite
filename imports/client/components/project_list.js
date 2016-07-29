@@ -2,20 +2,17 @@ import React, { Component } from 'react';
 
 import ProjectItem from './project_item';
 
-class ProjectList extends Component {
+// Trying to get callback function to work correctly
 
-	render() {
+const ProjectList = ({ projects, removeProject, loggedIn }) => (
 
-		const projectItems = this.props.projects.map((props, index) => 
-			<ProjectItem {...props} index={index} /> );
+	<div>
+		<div> List of projects</div><br/>
+    <button type="button" className="btn btn-primary" onClick={removeProject('test')}>Remove</button>
 
-		return (
-			<div>
-				<div> List of projects</div><br/>
-				{ projectItems }
-			</div>
-		);
-	}
-}
+			{ projects.map((props, index) => 
+        <ProjectItem key={props._id} {...props} loggedIn={loggedIn} removeProject={removeProject} index={index} /> )}
+	</div>
+)
 
 export default ProjectList;

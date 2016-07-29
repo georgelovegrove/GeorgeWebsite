@@ -46,7 +46,7 @@ export function loadUser() {
     Tracker.autorun(() =>{
       dispatch({
         type: 'USER_DATA',
-        payload: Meteor.user() ? Meteor.user() : null
+        payload: Meteor.user() ? Meteor.userId() : null
       });
     });
   }
