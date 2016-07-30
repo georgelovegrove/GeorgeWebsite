@@ -27,9 +27,8 @@ class Project extends Component {
 
     console.log('Project props: ', this.props);
 
-
     return (
-      <div>
+      <div className="container">
         <PageHeader />
         { this.selectProject(this.props.params.projectName) }
       </div>

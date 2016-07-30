@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 
 const ProjectItem = ({ _id, project_title, tech_used, project_url, date_posted, project_image, 
-                        project_description, owner, index, onRemoveProject, loggedIn, onViewProject }) => (
+                      project_description, owner, index, onRemoveProject, loggedIn, onViewProject }) => (
 
   <div>
     <div><a onClick={onViewProject.bind(null, project_url)}> Project title: { project_title } </a></div>

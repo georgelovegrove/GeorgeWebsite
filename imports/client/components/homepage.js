@@ -24,8 +24,7 @@ class Homepage extends Component {
   }
 
   onViewProject(projectName) {
-
-    browserHistory.push('/project/' + projectName); 
+    browserHistory.push(`/project/${projectName}`); 
   }
 
   render() {
@@ -49,12 +48,25 @@ class Homepage extends Component {
     //<img src="/images/george_profile.jpg" />
 
     return (
-      <div>
-        <div> Homepage header </div>
-
-        { loggedIn }
-        { removeProjectError }
-        { projectsData ? <ProjectList projects={projectsData.projects} loggedIn={userData.user ? true : false} onViewProject={this.onViewProject} onRemoveProject={this.onRemoveProject.bind(this)}/> : '' }
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-8">
+            Homepage header 
+          </div>
+          <div className="col-sm-4">
+            { loggedIn }
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12"> 
+            { removeProjectError } 
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12">
+            { projectsData ? <ProjectList projects={projectsData.projects} loggedIn={userData.user ? true : false} onViewProject={this.onViewProject} onRemoveProject={this.onRemoveProject.bind(this)}/> : '' }
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,6 +1,96 @@
-body {
-
+button, div, p, ul, li {
+  
+  font-family: Helvetica, sans-serif, Arial;
   font-size: 15px;
+  color: #5A5A5A;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+  padding: 0px;
+  margin: 0px;
+  color: #5A5A5A;
+}
+
+input, button {
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.page_title_header {
+
+  height: 40px;
+  width: 100%;
+  background-color: #91CBF3;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.page_title {
+
+  font-size: 20px;
+  font-weight: bolder;
+  margin-left: 10px;
+}
+
+.profile_image {
+
+  margin: 20px;
+  width: 200px;
+  height: 200px;
+}
+
+/* --- Navigation --- */
+.nav_container {
+
+  margin-top: 20px;
+  width: 100%;
+}
+
+.nav_image {
+
+  width: 80px;
+  height: 80px;
+}
+
+.nav_title {
+
+  position: absolute;
+  top: 30px;
+  margin-left: 90px;
+  font-weight: bolder;
+}
+
+.nav_button {
+
+  position: absolute;
+  right: 15px;
+  font-weight: bold;
+  width: 150px;
+  margin-top: 25px;
+  background-color: #F0F0F0;
+}
+
+.test_nav {
+
+  text-align: right;
+  background-color: red;
+}
+
+/* --- Login --- */
+.login_title {
+
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 10px;
 }
 
 
+.main_button {
+
+  font-weight: bold;
+  background-color: #F0F0F0;
+}

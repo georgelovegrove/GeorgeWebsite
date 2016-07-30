@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 
 
 class PageHeader extends Component {
+  
+  render() {
+    return (
 
-	render() {
-		return (
-
-			<div> Page navigation header </div>
-		);
-	}
+      <div> Page navigation header </div>
+    );
+  }
 }
 
 export default PageHeader;
