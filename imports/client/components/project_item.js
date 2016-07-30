@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 
 const ProjectItem = ({ _id, project_title, tech_used, project_url, date_posted, project_image, 
-                        project_description, owner, index, removeProject, loggedIn }) => (
+                        project_description, owner, index, onRemoveProject, loggedIn }) => (
 
   <div>
     <div> Project title: { project_title } </div>
@@ -14,23 +14,9 @@ const ProjectItem = ({ _id, project_title, tech_used, project_url, date_posted, 
     <div> Date posted: { date_posted } </div>
     <div> Image URL: { project_image } </div>
     <div> Description: { project_description } </div>
+    { loggedIn ? <button type="button" className="btn btn-primary" onClick={onRemoveProject.bind(null, index)}>Remove</button> : '' }
     <br/><br/><br/>
   </div>
 )
 
 export default ProjectItem;
-
-/*
-  remove button - { loggedIn ? <button type="button" className="btn btn-primary" onClick={removeProject( owner, _id, index )}>Remove</button> : '' }
-
-
-
-Removed
-const mapStateToProps = state => {
-  return { userData: state.userData, projectsData : state.projectsData };
-};
-
-    { userID ? <button type="button" className="btn btn-primary" onClick={removeProject({ userID: owner, projectID: _id }, projects, index)}>Remove</button> : '' }
-
-export default connect(mapStateToProps, { removeProject })(ProjectItem);
-*/

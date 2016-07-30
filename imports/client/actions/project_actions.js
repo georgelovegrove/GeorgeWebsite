@@ -27,11 +27,15 @@ export function addProject(params) {
 	};
 }
 
-export function removeProject(removeProject, projectList, projectIndex) {
-	return dispatch => {
+export function removeProject(projectList, projectIndex) {
+
+  const projectUserID = projectList[projectIndex].owner;
+  const projectID = projectList[projectIndex]._id;
+
+  return dispatch => {
     // Check the user owns the project post
-    if (Meteor.userId() === removeProject.userID) {
-      Meteor.call('projects.remove', removeProject.projectID, (error, payload) => {
+    if (Meteor.userId() === projectUserID) {
+      Meteor.call('projects.remove', projectID, (error, payload) => {
         if (error) {
           dispatch({
             type: 'REMOVE_PROJECT_ERROR',

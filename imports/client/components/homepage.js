@@ -11,48 +11,46 @@ import { loadProjects, removeProject } from '../actions/project_actions';
 
 class Homepage extends Component {
 
-	addProject() {
+  addProject() {
 
-		browserHistory.push('/addproject');
-	}
+    browserHistory.push('/addproject');
+  }
 
-	onRemoveProject(params) {
+  onRemoveProject(index) {
 
-		console.log('user ID', this.props.userData.user);
-		console.log('Projects ', this.props.projectsData.projects);
-		console.log('Reamining params ', params);
-	}
+    this.props.removeProject(this.props.projectsData.projects, index);
+  }
 
-	render() {
+  render() {
 
-		console.log('Homepage props ', this.props);
+    console.log('Homepage props ', this.props);
 
-		const { projectsData, userData, userLogout } = this.props;
+    const { projectsData, userData, userLogout } = this.props;
 
-		let removeProjectError;
-		if (projectsData) {
-			removeProjectError = projectsData.errorMessage ? <div>{projectsData.errorMessage}</div> : '';
-		}
+    let removeProjectError;
+    if (projectsData) {
+      removeProjectError = projectsData.errorMessage ? <div>{projectsData.errorMessage}</div> : '';
+    }
 
-		// TODO Input type needs cleaning up and should show nothing when logged out
-		const loggedIn = (userData.user) ?  
-			<div><button value="Logout" type="submit" className="btn btn-primary" onClick={userLogout}>Logout</button>
-			<button value="Logout" type="submit" className="btn btn-primary" onClick={this.addProject}>Add project</button></div>
-			: "No user logged in";
+    // TODO Input type needs cleaning up and should show nothing when logged out
+    const loggedIn = (userData.user) ?  
+      <div><button value="Logout" type="submit" className="btn btn-primary" onClick={userLogout}>Logout</button>
+      <button value="Logout" type="submit" className="btn btn-primary" onClick={this.addProject}>Add project</button></div>
+      : "No user logged in";
 
-		return (
-			<div>
-				<div> Homepage header </div>
-				{ loggedIn }
-				{ removeProjectError }
-				{ this.props.projectsData ? <ProjectList projects={projectsData.projects} loggedIn={userData.user ? true : false} removeProject={() => this.onRemoveProject.bind(this)}/> : '' }
-			</div>
-		);
-	}
+    return (
+      <div>
+        <div> Homepage header </div>
+        { loggedIn }
+        { removeProjectError }
+        { projectsData ? <ProjectList projects={projectsData.projects} loggedIn={userData.user ? true : false} onRemoveProject={this.onRemoveProject.bind(this)}/> : '' }
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = state => {
-	return { projectsData: state.projectsData, userData: state.userData };
+  return { projectsData: state.projectsData, userData: state.userData };
 };
 
 export default connect(mapStateToProps, { userLogout, loadProjects, removeProject })(Homepage);
