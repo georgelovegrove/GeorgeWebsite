@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 
 
 const ProjectItem = ({ _id, project_title, tech_used, project_url, date_posted, project_image, 
-                        project_description, owner, index, onRemoveProject, loggedIn }) => (
+                        project_description, owner, index, onRemoveProject, loggedIn, onViewProject }) => (
 
   <div>
-    <div> Project title: { project_title } </div>
+    <div onClick={onViewProject.bind(null, project_url)}> Project title: { project_title } </div>
     <div> Tech used: { tech_used } </div>
     <div> Project URL: { project_url } </div>
     <div> Date posted: { date_posted } </div>

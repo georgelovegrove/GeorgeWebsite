@@ -12,13 +12,11 @@ class AddProject extends Component {
 	// TODO Need to find a good way to redirect for when a user is not logged in, React router onEnter perhaps
 
 	onLogout() {
-
 		this.props.userLogout();
 	}
 
 	onSubmit(props) {
 		event.preventDefault();
-
 
 		this.props.addProject(props);
 	}

@@ -15,7 +15,6 @@ class Login extends Component {
 
 		// When the page updates if they are logged in then redirect them
 		if (this.props.userData.user) {
-
 			browserHistory.push('/');
 		}
 	}

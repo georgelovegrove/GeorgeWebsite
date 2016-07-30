@@ -12,13 +12,20 @@ import { loadProjects, removeProject } from '../actions/project_actions';
 class Homepage extends Component {
 
   addProject() {
-
     browserHistory.push('/addproject');
   }
 
-  onRemoveProject(index) {
+  onLogin() {
+    browserHistory.push('/login'); 
+  }
 
+  onRemoveProject(index) {
     this.props.removeProject(this.props.projectsData.projects, index);
+  }
+
+  onViewProject(projectName) {
+
+    browserHistory.push('/project/' + projectName); 
   }
 
   render() {
@@ -36,14 +43,14 @@ class Homepage extends Component {
     const loggedIn = (userData.user) ?  
       <div><button value="Logout" type="submit" className="btn btn-primary" onClick={userLogout}>Logout</button>
       <button value="Logout" type="submit" className="btn btn-primary" onClick={this.addProject}>Add project</button></div>
-      : "No user logged in";
+      : <button value="Login" type="submit" className="btn btn-primary" onClick={this.onLogin}>Login</button>;
 
     return (
       <div>
         <div> Homepage header </div>
         { loggedIn }
         { removeProjectError }
-        { projectsData ? <ProjectList projects={projectsData.projects} loggedIn={userData.user ? true : false} onRemoveProject={this.onRemoveProject.bind(this)}/> : '' }
+        { projectsData ? <ProjectList projects={projectsData.projects} loggedIn={userData.user ? true : false} onViewProject={this.onViewProject} onRemoveProject={this.onRemoveProject.bind(this)}/> : '' }
       </div>
     );
   }
