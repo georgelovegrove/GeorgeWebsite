@@ -45,9 +45,13 @@ class Homepage extends Component {
       <button value="Logout" type="submit" className="btn btn-primary" onClick={this.addProject}>Add project</button></div>
       : <button value="Login" type="submit" className="btn btn-primary" onClick={this.onLogin}>Login</button>;
 
+    // Access images straight through images folder
+    //<img src="/images/george_profile.jpg" />
+
     return (
       <div>
         <div> Homepage header </div>
+
         { loggedIn }
         { removeProjectError }
         { projectsData ? <ProjectList projects={projectsData.projects} loggedIn={userData.user ? true : false} onViewProject={this.onViewProject} onRemoveProject={this.onRemoveProject.bind(this)}/> : '' }
