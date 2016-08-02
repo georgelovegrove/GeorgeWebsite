@@ -22,7 +22,6 @@ class AddProject extends Component {
   }
 
   componentDidUpdate() {
-
     // When the page updates if they have submitted a form successfully they should be redirected
     if (this.props.projectsData.redirectUser) {
       browserHistory.push('/');
@@ -31,28 +30,28 @@ class AddProject extends Component {
 
   render() {
 
-    // TODO Input needs cleaning up and should show nothing when logged out
-    const loggedIn = (this.props.userData.user) ? <button className="nav_button btn btn-block" onClick={this.onLogout.bind(this)}>Logout</button> : '';
+    console.log('screen width: ', screen.width);
 
     const { fields: { project_title, tech_used, project_url, date_posted, project_image, project_description }, handleSubmit, projectsData } = this.props;
 
     // TODO finish login conditional styling and then export this into page_header.js
     // Look into bootstarp hidden in alpha 4 vesion
+    const style = { 'margin-left': 300 };
 
     return (
       <div className="container">
 
         <div className="row">
           <div className="nav_container">
-            <div className="col-sm-7 col-sm-offset-1">
+            <div className="col-sm-7 col-sm-offset-1 col-xs-12">
 
-              <img className="nav_image" src="/images/george_profile.jpg" />
-              <h3 className="nav_title">George Lovegrove</h3>
+              <img onClick={() => browserHistory.push('/')} className="nav_image" src="/images/george_profile.jpg" />
+              <h3 onClick={() => browserHistory.push('/')} className="nav_title">George Lovegrove</h3>
             </div>
 
-            <div className="col-sm-3">
-              <div className="">
-                { loggedIn }
+            <div className="col-sm-3 col-sm-offset-0 col-xs-4 col-xs-offset-4">
+              <div className="text-center">
+                { (this.props.userData.user) ? <button className="nav_button btn btn-block" onClick={this.onLogout.bind(this)}>Logout</button> : '' }
               </div>
             </div>
           </div>
@@ -99,7 +98,7 @@ class AddProject extends Component {
               <div> { project_description.touched ? project_description.error : ''} </div>
             </div>
 
-            <div className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+            <div className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
               <div>{ projectsData.errorMessage ? projectsData.errorMessage : '' }</div>
               <button className="main_button btn btn-block">Submit</button>
             </div>

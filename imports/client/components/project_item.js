@@ -7,15 +7,48 @@ import { connect } from 'react-redux';
 const ProjectItem = ({ _id, project_title, tech_used, project_url, date_posted, project_image, 
                       project_description, owner, index, onRemoveProject, loggedIn, onViewProject }) => (
 
-  <div>
-    <div><a onClick={onViewProject.bind(null, project_url)}> Project title: { project_title } </a></div>
-    <div> Tech used: { tech_used } </div>
-    <div> Project URL: { project_url } </div>
-    <div> Date posted: { date_posted } </div>
-    <div> Image URL: { project_image } </div>
-    <div> Description: { project_description } </div>
-    { loggedIn ? <button type="button" className="btn btn-primary" onClick={onRemoveProject.bind(null, index)}>Remove</button> : '' }
-    <br/><br/><br/>
+  <div className="project_container">
+
+    <div className="row">
+      <div className="col-lg-3 col-md-4">
+
+          <div className="project_image_container"> 
+            <img className="project_image" src="/projects/setupwebsitesm.png" />
+          </div>
+      </div>
+
+      <div className="col-lg-9 col-md-8">
+
+        <div className="row">
+          <div className="col-sm-6 col-xs-12">
+
+            <div className="project_title"><a onClick={onViewProject.bind(null, project_url)}>  { project_title } </a></div>
+          </div>
+
+          <div className="col-sm-6 col-xs-12 text-right">
+
+            <div className="project_date"> Developed: { date_posted } </div>
+            { loggedIn ? <img className="remove_cross" onClick={onRemoveProject.bind(null, index)} src="/images/cross.png" /> : '' }
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-xs-12">
+            
+            <div className="project_tech"> Tech: { tech_used } </div>
+          </div>
+        </div>
+
+        <div className="row">  
+          <div className="col-xs-12">
+
+            <div className="description_container">
+              <div> { project_description } </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 )
 
