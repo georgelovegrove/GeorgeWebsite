@@ -25,8 +25,8 @@ Changed the structure of the reducers to include redirect and error properties t
 #### 9. Added remove project functionality
 Logged in users can see the remove functionality next to projects. If the user owns the project they can delete it, otherwise an error message is shown.
 
-### 10. Styled application
+#### 10. Styled application
 Application was styled using Bootstrap and CSS.
 
-### 11. Updated adding and showing project images
+#### 11. Updated adding and showing project images
 Images are added via a base64 string which is saved in the projects collection and rendered when shown on the homepage. This eventually needs updated to allow for an image upload that automatically resizes and converts to a base64 string to be saved in the database.

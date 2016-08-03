@@ -25,7 +25,5 @@ Meteor.methods({
 
 		Projects.remove(projectID);
 	}
-
-
 });
 

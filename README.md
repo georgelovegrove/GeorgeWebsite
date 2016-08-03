@@ -17,6 +17,8 @@ Please refer to the DEVHISTORY.md file to see the history of development from st
 - Refactor any necessary components where they should be able to become functions instead of classes
 - Do setupwebsite page with documentation on how website was made for the first project
 - Add change password page
+- Integrate Babel into project
+- Add in dev and prod build scripts
 
 ### Eventually TODOS
 

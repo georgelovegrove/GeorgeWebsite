@@ -3,6 +3,8 @@ import { Meteor } from 'meteor/meteor';
 import './publications';
 import './methods';
 
+
+
 Meteor.startup(() => {
 
 	// Add default admin account if none exist
@@ -12,5 +14,4 @@ Meteor.startup(() => {
 	        password: 'password'
 	    });
 	}
-
 });
