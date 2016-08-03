@@ -19,6 +19,7 @@ Please refer to the DEVHISTORY.md file to see the history of development from st
 - Add change password page
 - Integrate Babel into project
 - Add in dev and prod build scripts
+- Integrate Sass, Less or PostCSS to separate CSS file and reduce complexity
 
 ### Eventually TODOS
 

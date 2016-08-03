@@ -5,12 +5,16 @@ button, div, p, ul, li {
   color: #5A5A5A;
 }
 
+textarea {  resize: none; }
+
 a { color: #5A5A5A; }
 
 a:hover {
     text-decoration: none;
     color: #91CBF3;
 }
+
+p { margin: 10px;}
 
 h1, h2, h3, h4, h5, h6 {
 
@@ -19,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #5A5A5A;
 }
 
-input, button {
+input, button, textarea {
 
   margin-top: 10px;
   margin-bottom: 10px;
@@ -342,5 +346,24 @@ button:hover {
 
   font-size: 20px;
   font-weight: bolder;
+  margin: 10px;
+}
+
+/* --- Project: Hobby designs --- */
+
+.hobby_icon_selection {
+
+  width: 50%;
+  height: 50%;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.hobby_homepage_image {
+
+  border: 1px solid #F0F0F0;
+  border-radius: 10px;
+  width: 75%;
+  height: 100%;
   margin: 10px;
 }

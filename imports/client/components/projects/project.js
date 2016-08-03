@@ -5,6 +5,7 @@ import InvalidProject from './invalid_project';
 
 // Available projects 
 import SetupWebsite from './setupwebsite';
+import HobbyDesigns from './hobbydesigns';
 
 
 
@@ -16,6 +17,8 @@ class Project extends Component {
     switch (projectName) {
       case 'setupwebsite':
         return <SetupWebsite />
+      case 'hobbydesigns':
+        return <HobbyDesigns />
       default:
         return <InvalidProject />
     }

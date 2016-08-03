@@ -19,7 +19,7 @@ const SetupWebsite = () => {
           <div className="project_container">
             <div className="project_inner_container">
              
-                <div>TODO - This page should document how the website was developed, what each component of the website does and also 
+                <div>This page will soon document how the website was developed, what each component of the website does and also 
                  what was learnt after completing the website setup.</div>
             </div>
           </div>
