@@ -10,7 +10,7 @@ const ProjectList = ({ projects, onRemoveProject, loggedIn, onViewProject }) => 
       { projects.map((props, index) => 
         <div className="row">
           <div className="col-sm-10 col-sm-offset-1">
-            <ProjectItem key={props._id} {...props} onViewProject={onViewProject} loggedIn={loggedIn} onRemoveProject={onRemoveProject} index={index} />
+            <ProjectItem key={props._id} {...props} onViewProject={onViewProject} loggedIn={loggedIn} onRemoveProject={onRemoveProject.bind(null, index)} index={index} />
           </div>
         </div>
       )}

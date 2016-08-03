@@ -37,11 +37,16 @@ class Homepage extends Component {
               <h4 className="homepage_subtitle">JavaScript Developer</h4>
 
               <div className="image_container">
-                <div className="image_item"><a href="https://www.facebook.com/glovegrove"><img className="homepage_icon" src="/general/facebook.png" /></a></div>
-                <div className="image_item"><a href="https://www.github.com/georgelovegrove"><img className="homepage_icon" src="/general/github.png" /></a></div>
-                <div className="image_item"><a href="https://uk.linkedin.com/in/georgelovegrove"><img className="homepage_icon" src="/general/linkedin.png" /></a></div>
-                <div className="image_item"><a href="https://medium.com/@georgelovegrove"><img className="homepage_icon" src="/general/medium.png" /></a></div>
-                <div className="image_item"><a href="https://angel.co/glovegrove"><img className="homepage_icon" src="/general/angellist.png" /></a></div>
+                <div className="image_item"><a href="https://www.facebook.com/glovegrove" target="_blank">
+                                              <img className="homepage_icon" src="/general/facebook.png" /></a></div>
+                <div className="image_item"><a href="https://www.github.com/georgelovegrove" target="_blank">
+                                              <img className="homepage_icon" src="/general/github.png" /></a></div>
+                <div className="image_item"><a href="https://uk.linkedin.com/in/georgelovegrove" target="_blank">
+                                              <img className="homepage_icon" src="/general/linkedin.png" /></a></div>
+                <div className="image_item"><a href="https://medium.com/@georgelovegrove" target="_blank">
+                                              <img className="homepage_icon" src="/general/medium.png" /></a></div>
+                <div className="image_item"><a href="https://angel.co/glovegrove" target="_blank">
+                                              <img className="homepage_icon" src="/general/angellist.png" /></a></div>
               </div>
             </div>
 

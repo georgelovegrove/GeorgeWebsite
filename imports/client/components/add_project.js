@@ -11,10 +11,6 @@ class AddProject extends Component {
 
   // TODO Need to find a good way to redirect for when a user is not logged in, React router onEnter perhaps
 
-  onLogout() {
-    this.props.userLogout();
-  }
-
   onSubmit(props) {
     event.preventDefault();
 
@@ -30,32 +26,12 @@ class AddProject extends Component {
 
   render() {
 
-    console.log('screen width: ', screen.width);
-
-    const { fields: { project_title, tech_used, project_url, date_posted, project_image, project_description }, handleSubmit, projectsData } = this.props;
-
-    // TODO finish login conditional styling and then export this into page_header.js
-    // Look into bootstarp hidden in alpha 4 vesion
-    const style = { 'margin-left': 300 };
+    const { fields: { project_title, tech_used, project_url, date_posted, project_image, project_description }, handleSubmit, projectsData, userData, userLogout } = this.props;
 
     return (
       <div className="container">
 
-        <div className="row">
-          <div className="nav_container">
-            <div className="col-sm-7 col-sm-offset-1 col-xs-12">
-
-              <img onClick={() => browserHistory.push('/')} className="nav_image" src="/general/george_profile.jpg" />
-              <h3 onClick={() => browserHistory.push('/')} className="nav_title">George Lovegrove</h3>
-            </div>
-
-            <div className="col-sm-3 col-sm-offset-0 col-xs-4 col-xs-offset-4">
-              <div className="text-center">
-                { (this.props.userData.user) ? <button className="nav_button btn btn-block" onClick={this.onLogout.bind(this)}>Logout</button> : '' }
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeader userData={userData} dateDeveloped={null} onLogout={userLogout} />
 
         <div className="row">
           <div className="col-sm-10 col-sm-offset-1">
@@ -89,7 +65,7 @@ class AddProject extends Component {
             </div>
 
             <div className="col-sm-10 col-sm-offset-1 text-center">
-              <input type="text" className="form-control validate text-center" placeholder="Project image relative URL" {...project_image}/>
+              <input type="text" className="form-control validate text-center" placeholder="Base64 encoded string" {...project_image}/>
               <div> { project_image.touched ? project_image.error : ''} </div>
             </div>
 
@@ -117,7 +93,7 @@ function validate(values) {
   if (!values.tech_used) {	errors.tech_used = 'Enter the technologies used';	}
   if (!values.project_url) {	errors.project_url = 'Enter the relative project URL';	}
   if (!values.date_posted) {	errors.date_posted = 'Enter the date the project was developed';	}
-  if (!values.project_image) {	errors.project_image = 'Enter the project image relative URL';	}
+  if (!values.project_image) {	errors.project_image = 'Enter a Base64 string';	}
   if (!values.project_description) {	errors.project_description = 'Enter a project description';	}
 
   // TODO Finish validation

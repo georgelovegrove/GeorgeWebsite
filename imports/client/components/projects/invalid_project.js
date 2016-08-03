@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-const SetupWebsite = () => {
+const InvalidProject = () => {
 
   return (
     <div>
@@ -9,7 +9,7 @@ const SetupWebsite = () => {
       <div className="row">
         <div className="col-sm-10 col-sm-offset-1">
           <div className="page_title_header">
-            <h3 className="page_title">Setup website</h3>
+            <h3 className="page_title">Unknown project URL</h3>
           </div>
         </div>
       </div>
@@ -19,8 +19,7 @@ const SetupWebsite = () => {
           <div className="project_container">
             <div className="project_inner_container">
              
-                <div>TODO - This page should document how the website was developed, what each component of the website does and also 
-                 what was learnt after completing the website setup.</div>
+                <div>Please use a valid project URL.</div>
             </div>
           </div>
         </div>
@@ -30,4 +29,4 @@ const SetupWebsite = () => {
 
 }
 
-export default SetupWebsite;
+export default InvalidProject;
