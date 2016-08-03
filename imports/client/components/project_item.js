@@ -28,7 +28,7 @@ const ProjectItem = ({ _id, project_title, tech_used, project_url, date_posted, 
           <div className="col-sm-6 col-xs-12 text-right">
 
             <div className="project_date"> Developed: { date_posted } </div>
-            { loggedIn ? <img className="remove_cross" onClick={onRemoveProject.bind(null, index)} src="/images/cross.png" /> : '' }
+            { loggedIn ? <img className="remove_cross" onClick={onRemoveProject.bind(null, index)} src="/general/cross.png" /> : '' }
           </div>
         </div>
 

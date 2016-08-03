@@ -32,9 +32,17 @@ class Homepage extends Component {
           <div className="nav_container">
             <div className="col-sm-7 col-sm-offset-1 col-xs-12">
 
-              <img className="homepage_image img-circle" src="/images/george_profile.jpg" />
+              <img className="homepage_image img-circle" src="/general/george_profile.jpg" />
               <h3 className="homepage_title">George Lovegrove</h3>
               <h4 className="homepage_subtitle">JavaScript Developer</h4>
+
+              <div className="image_container">
+                <div className="image_item"><a href="https://www.facebook.com/glovegrove"><img className="homepage_icon" src="/general/facebook.png" /></a></div>
+                <div className="image_item"><a href="https://www.github.com/georgelovegrove"><img className="homepage_icon" src="/general/github.png" /></a></div>
+                <div className="image_item"><a href="https://uk.linkedin.com/in/georgelovegrove"><img className="homepage_icon" src="/general/linkedin.png" /></a></div>
+                <div className="image_item"><a href="https://medium.com/@georgelovegrove"><img className="homepage_icon" src="/general/medium.png" /></a></div>
+                <div className="image_item"><a href="https://angel.co/glovegrove"><img className="homepage_icon" src="/general/angellist.png" /></a></div>
+              </div>
             </div>
 
             <div className="col-sm-3 col-sm-offset-0 col-xs-6 col-xs-offset-3">

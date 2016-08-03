@@ -30,7 +30,7 @@ class Login extends Component {
 
         <div className="row">
           <div className="col-xs-12 text-center">
-            <img className="profile_image" src="/images/george_profile.jpg" />
+            <img className="profile_image" src="/general/george_profile.jpg" />
           </div>
           <div className="col-xs-12 text-center">
             <h3 className="login_title">Admin login</h3>

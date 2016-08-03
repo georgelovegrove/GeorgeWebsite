@@ -12,11 +12,11 @@ Please refer to the DEVHISTORY.md file to see the history of development from st
 
 ### TODOS
 
-- Finish styling login, add project and homepage
-- Link up images and links on homepage
+- Link up images for projects on homepage correctly
 - Add proper validation on the form inputs for both login and add project (should be able to use ReduxForm for the majority)
 - Find a way to do correct redirects before a page is loaded, perhaps using React Router onEnter()
 - Refactor any necessary components where they should be able to become functions instead of classes
+- Do setupwebsite page with documentation on how website was made for the first project
 
 ### Eventually TODOS
 

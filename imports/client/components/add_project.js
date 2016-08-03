@@ -45,7 +45,7 @@ class AddProject extends Component {
           <div className="nav_container">
             <div className="col-sm-7 col-sm-offset-1 col-xs-12">
 
-              <img onClick={() => browserHistory.push('/')} className="nav_image" src="/images/george_profile.jpg" />
+              <img onClick={() => browserHistory.push('/')} className="nav_image" src="/general/george_profile.jpg" />
               <h3 onClick={() => browserHistory.push('/')} className="nav_title">George Lovegrove</h3>
             </div>
 
