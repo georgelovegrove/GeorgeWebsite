@@ -1,17 +1,26 @@
+/*  Colours  */
+$grey : #5A5A5A;
+$light-grey : #F0F0F0;
+$very-light-grey : #FAFAFA;
+$shadow-grey : #DCDCDC;
+$blue : #91CBF3;
+$white : #FFFFFF;
+
+
 button, div, p, ul, li {
   
   font-family: Helvetica, sans-serif, Arial;
   font-size: 15px;
-  color: #5A5A5A;
+  color: $grey;
 }
 
 textarea {  resize: none; }
 
-a { color: #5A5A5A; }
+a { color: $grey; }
 
 a:hover {
     text-decoration: none;
-    color: #91CBF3;
+    color: $blue;
 }
 
 p { margin: 10px;}
@@ -20,7 +29,7 @@ h1, h2, h3, h4, h5, h6 {
 
   padding: 0px;
   margin: 0px;
-  color: #5A5A5A;
+  color: $grey;
 }
 
 input, button, textarea {
@@ -31,13 +40,13 @@ input, button, textarea {
 
 button:hover {
 
-  box-shadow: 2px 2px #DCDCDC;
+  box-shadow: 2px 2px $shadow-grey;
 }
 
 .main_button {
 
   font-weight: bold;
-  background-color: #F0F0F0;
+  background-color: $light-grey;
 }
 
 /* --- Header and page title --- */
@@ -46,7 +55,7 @@ button:hover {
 
   height: 40px;
   width: 100%;
-  background-color: #91CBF3;
+  background-color: $blue;
   border-radius: 10px;
   padding: 10px;
   margin-top: 20px;
@@ -128,7 +137,7 @@ button:hover {
     font-weight: bold;
     width: 150px;
     right: 20px;
-    background-color: #F0F0F0;   
+    background-color: $light-grey;   
   }
 
   .homepage_addproject {  top: 90px;  }
@@ -165,7 +174,7 @@ button:hover {
   .homepage_login, .homepage_logout, .homepage_addproject {
 
     font-weight: bold;
-    background-color: #F0F0F0;
+    background-color: $light-grey;
     margin-top: 20px;
     margin-bottom: 10px;
   }
@@ -176,7 +185,7 @@ button:hover {
 
 .project_container {
 
-  background-color: #FAFAFA;
+  background-color: $very-light-grey;
   margin-top:10px;
   margin-bottom:20px;
   padding:20px;
@@ -185,7 +194,7 @@ button:hover {
 
 .project_inner_container {
 
-  background-color: #FFFFFF;
+  background-color: $white;
   border-radius: 10px;
   padding: 12px;
 }
@@ -206,7 +215,7 @@ button:hover {
 .description_container {
 
   margin-top: 10px;
-  background-color: #FFFFFF;
+  background-color: $white;
   width: 100%;
   border-radius: 10px;
   padding: 14px;
@@ -298,13 +307,13 @@ button:hover {
 .nav_title:hover {
 
   cursor: pointer;
-  color: #91CBF3;
+  color: $blue;
 }
 
 .nav_button {
 
   font-weight: bold;
-  background-color: #F0F0F0;
+  background-color: $light-grey;
 }
 
 @media screen and (min-width: 768px) {
@@ -361,7 +370,7 @@ button:hover {
 
 .hobby_homepage_image {
 
-  border: 1px solid #F0F0F0;
+  border: 1px solid $light-grey;
   border-radius: 10px;
   width: 75%;
   height: 100%;
