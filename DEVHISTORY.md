@@ -32,4 +32,4 @@ Application was styled using Bootstrap and CSS.
 Images are added via a base64 string which is saved in the projects collection and rendered when shown on the homepage. This eventually needs updated to allow for an image upload that automatically resizes and converts to a base64 string to be saved in the database.
 
 #### 12. Added SASS into project
-SASS has been added to the project with the colours being swapped for variable names. The integration needs finishing by making more modular files and nesting.
+SASS has been added to the project which includes the use of variables, nesting and imports.
