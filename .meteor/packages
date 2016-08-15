@@ -22,4 +22,4 @@ accounts-ui@1.1.9
 accounts-password@1.2.12
 twbs:bootstrap
 tomi:accountsui-semanticui-redux
-fourseven:scss@3.8.0_1
+fourseven:scss@=3.8.0_1
