@@ -54,9 +54,9 @@ class Homepage extends Component {
               <div className="text-center">
 
                 { userData.user ?  
-                  <div><button value="Logout" type="submit" className="homepage_logout btn btn-block" onClick={userLogout}>Logout</button>
-                        <button value="Logout" type="submit" className="homepage_addproject btn btn-block" onClick={() => browserHistory.push('/addproject')}>Add project</button></div> 
-                  : <button value="Login" type="submit" className="homepage_login btn btn-block" onClick={() => browserHistory.push('/login')}>Login</button> }
+                  <div><button value="Logout" type="submit" className="homepage_nav_button homepage_logout btn btn-block" onClick={userLogout}>Logout</button>
+                        <button value="Logout" type="submit" className="homepage_nav_button homepage_addproject btn btn-block" onClick={() => browserHistory.push('/addproject')}>Add project</button></div> 
+                  : <button value="Login" type="submit" className="homepage_nav_button homepage_login btn btn-block" onClick={() => browserHistory.push('/login')}>Login</button> }
               </div>
             </div>
           </div>

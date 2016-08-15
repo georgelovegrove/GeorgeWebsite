@@ -1,0 +1,219 @@
+@import 'utility';
+
+/* --- Homepage --- */
+
+.homepage_image {
+
+  width: 180px;
+  height: 180px;
+}
+
+.homepage_icon {
+
+  cursor: pointer;
+  max-width: 20px;
+  max-height: 20px;
+}
+
+.image_container {
+
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  height: 25px;
+
+  @media screen and (min-width: $small-page) {
+
+    position: absolute;
+    top: 100px;
+    margin-left: 195px;
+  }
+
+  @media screen and (max-width: $small-page) {
+
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    position: static;
+    text-align: center;
+  }
+}
+
+.image_item {
+
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  margin: 2.5px;
+}
+
+.homepage_title {
+
+  @media screen and (min-width: $small-page) {
+
+    position: absolute;
+    top: 30px;
+    margin-left: 200px;
+    font-weight: bolder;
+  }
+
+  @media screen and (max-width: $small-page) {
+
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bolder;
+  }
+}
+
+.homepage_subtitle {
+
+  @media screen and (min-width: $small-page) {
+
+    position: absolute;
+    top: 65px;
+    margin-left: 200px;
+  }
+  @media screen and (max-width: $small-page) {
+
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+.homepage_nav_button {
+
+  @media screen and (min-width: $small-page) {
+
+    position: absolute;
+    width: 150px;
+    right: 20px;
+  }
+
+  @media screen and (max-width: $small-page) {
+
+    margin-top: 20px;
+    margin-bottom: 10px;
+  } 
+}
+
+.homepage_logout {
+
+  @media screen and (min-width: $small-page) {  top:40px;   }
+} 
+
+.homepage_addproject {
+
+  @media screen and (min-width: $small-page) {  top: 90px;  }
+} 
+
+.homepage_login {
+
+  @media screen and (min-width: $small-page) {  top: 65px;  }
+}
+
+/* --- Homepage projects --- */
+
+.project_container {
+
+  background-color: $very-light-grey;
+  margin-top:10px;
+  margin-bottom:20px;
+  padding:20px;
+  border-radius: 10px;
+}
+
+.project_inner_container {
+
+  background-color: $white;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.project_image {
+
+  max-height: 150px;
+  max-width: 180px;
+}
+
+.project_tech {
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-style: italic;
+
+  @media screen and (max-width: $medium-page) {
+    margin-left: 5px;
+  }
+}
+
+.description_container {
+
+  margin-top: 10px;
+  background-color: $white;
+  width: 100%;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.project_title { 
+  cursor: pointer; 
+
+  @media screen and (max-width: $medium-page) {
+
+    margin-left: 5px;
+    font-size: 25px;
+    font-weight: bolder;
+    margin-top: 10px;
+  }
+  @media screen and (min-width: $medium-page) {
+
+    font-size: 25px;
+    font-weight: bolder;
+  }
+}
+
+.project_date {
+
+  @media screen and (max-width: $medium-page) {
+
+    margin-top: 20px;
+    position: absolute;
+    right: 120px;
+  }
+  @media screen and (max-width: $small-page) {
+
+    position: static;
+    margin-right: 120px;
+  }
+  @media screen and (min-width: $medium-page) {
+
+    width: 100%;
+    position: absolute;
+    margin-top: 3px;
+    right: 60px;
+  }
+}
+
+.remove_cross {
+
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+
+  @media screen and (max-width: $medium-page) {
+
+    margin-top: 20px;
+  }
+  @media screen and (max-width: $small-page) {
+
+    position: absolute;
+    top: 0px;
+    right: 20px;
+  }
+  @media screen and (min-width: $medium-page) {
+
+    position: absolute;
+    top: 0px;
+    right: 20px;
+  }
+}
