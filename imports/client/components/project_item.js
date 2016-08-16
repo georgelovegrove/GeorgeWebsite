@@ -13,7 +13,7 @@ const ProjectItem = ({ _id, project_title, tech_used, project_url, date_posted, 
       <div className="col-lg-3 col-md-4">
 
           <div className="body_inner_container text-center"> 
-            <img className="project_image" src={project_image} />
+            <a onClick={onViewProject.bind(null, project_url)}><img className="project_image" src={project_image} /></a>
           </div>
       </div>
 

@@ -1,6 +1,13 @@
 @import 'utility';
 
 /* --- Base --- */
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 button, div, p, ul, li {
   
   font-family: $font-stack;
@@ -12,6 +19,7 @@ textarea {  resize: none; }
 
 a { 
   color: $grey; 
+  cursor: pointer;
 
   &:hover {
       text-decoration: none;
