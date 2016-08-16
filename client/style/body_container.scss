@@ -1,0 +1,35 @@
+@import 'utility';
+
+/* --- Website content containers --- */
+
+.body_container {
+
+  background-color: $very-light-grey;
+  margin-top:10px;
+  margin-bottom:20px;
+  padding:20px;
+  border-radius:10px;
+}
+
+.body_inner_container {
+
+  background-color: $white;
+  border-radius: 10px;
+  padding: 12px;
+
+  a {
+  	color: $blue;
+  	&:hover {
+  		color: $darker-blue;
+  	}
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+
+  	margin: 10px;
+  	margin-top: 20px;
+  	font-weight: bold;
+  }
+
+
+}

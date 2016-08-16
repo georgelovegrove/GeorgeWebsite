@@ -1,6 +1,6 @@
 ### Installation
 
-1. git clone https://github.com/georgelovegrove/GeorgeWebsite.git - Download the repository
+1. git clone https://github.com/georgelovegrove/george-website.git - Download the repository
 2. npm install - Install the dependencies
 3. meteor - Run the project
 
@@ -10,13 +10,12 @@ Please refer to the DEVHISTORY.md file to see the history of development from st
 
 ### TODOS
 
-- Finish integrating SASS
-- Add proper validation on the form inputs for both login and add project (should be able to use ReduxForm for the majority)
-- Find a way to do correct redirects before a page is loaded, perhaps using React Router onEnter()
-- Refactor any necessary components where they should be able to become functions instead of classes
-- Do setupwebsite page with documentation on how website was made for the first project
-- Add change password page
+- Finish integrating SASS, perhaps add Compass
 - Integrate Babel into project
+- Add proper validation on the form inputs for both login and add project (should be able to use ReduxForm for the majority)
+- Refactor any necessary components where they should be able to become functions instead of classes
+- Add change password page
+- Find a way to do correct redirects before a page is loaded, perhaps using React Router onEnter()
 - Add in dev and prod build scripts
 
 ### Eventually TODOS

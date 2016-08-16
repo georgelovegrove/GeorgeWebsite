@@ -7,12 +7,12 @@ import { connect } from 'react-redux';
 const ProjectItem = ({ _id, project_title, tech_used, project_url, date_posted, project_image, 
                       project_description, owner, index, onRemoveProject, loggedIn, onViewProject }) => (
 
-  <div className="project_container">
+  <div className="body_container">
 
     <div className="row">
       <div className="col-lg-3 col-md-4">
 
-          <div className="project_inner_container text-center"> 
+          <div className="body_inner_container text-center"> 
             <img className="project_image" src={project_image} />
           </div>
       </div>

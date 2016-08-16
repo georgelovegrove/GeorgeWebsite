@@ -80,7 +80,7 @@
   }
 }
 
-.homepage_nav_button {
+%homepage_nav_button {
 
   @media screen and (min-width: $small-page) {
 
@@ -98,36 +98,23 @@
 
 .homepage_logout {
 
+  @extend %homepage_nav_button;
   @media screen and (min-width: $small-page) {  top:40px;   }
 } 
 
 .homepage_addproject {
 
+  @extend %homepage_nav_button;
   @media screen and (min-width: $small-page) {  top: 90px;  }
 } 
 
 .homepage_login {
 
+  @extend %homepage_nav_button;
   @media screen and (min-width: $small-page) {  top: 65px;  }
 }
 
-/* --- Homepage projects --- */
-
-.project_container {
-
-  background-color: $very-light-grey;
-  margin-top:10px;
-  margin-bottom:20px;
-  padding:20px;
-  border-radius: 10px;
-}
-
-.project_inner_container {
-
-  background-color: $white;
-  border-radius: 10px;
-  padding: 12px;
-}
+/* --- Homepage projects list --- */
 
 .project_image {
 
@@ -165,6 +152,7 @@
     font-weight: bolder;
     margin-top: 10px;
   }
+
   @media screen and (min-width: $medium-page) {
 
     font-size: 25px;
@@ -180,11 +168,13 @@
     position: absolute;
     right: 120px;
   }
+
   @media screen and (max-width: $small-page) {
 
     position: static;
     margin-right: 120px;
   }
+
   @media screen and (min-width: $medium-page) {
 
     width: 100%;
@@ -204,12 +194,14 @@
 
     margin-top: 20px;
   }
+
   @media screen and (max-width: $small-page) {
 
     position: absolute;
     top: 0px;
     right: 20px;
   }
+
   @media screen and (min-width: $medium-page) {
 
     position: absolute;

@@ -2,5 +2,7 @@
 @import 'base';
 @import 'header_page';
 @import 'login';
+@import 'body_container';
 
-@import 'project_page_hobby';
+@import 'projects/hobby_project';
+@import 'projects/setup_website';

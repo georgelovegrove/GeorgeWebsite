@@ -16,8 +16,8 @@ const HobbyDesigns = () => {
 
       <div className="row">
         <div className="col-sm-10 col-sm-offset-1">
-          <div className="project_container">
-            <div className="project_inner_container">
+          <div className="body_container">
+            <div className="body_inner_container">
              
                 <p>For this project an assortment of icons were needed to represent each hobby. To cater 
                 for this I created well over 100 icons for use in the application. A small selection is shown below. </p>
