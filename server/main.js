@@ -7,17 +7,21 @@ import './methods';
 
 Meteor.startup(() => {
 
-	/*
-		This username and password is currently the login for the real website - www.georgelovegrove.com
-		You're welcome to have a play! I will be replacing it eventually with two user accounts - my own and a test account.
-		My account will have posts that actually show on the page where as a test account can use all the functionality yet cannot
-		remove other users posts and their posts are also not public.
-	*/
+  /*
+    TODO - Add test account user that can login, add projects and remove their own projects.
+          Test users can't change their password or projects they don't own.
+          Test user projects aren't shown on the homepage.
 
-	if (Meteor.users.find().count() === 0) {
-	    Accounts.createUser({
-	        email: 'lovegrovegeorge@gmail.com',
-	        password: 'password'
-	    });
-	}
+    Accounts.createUser({
+        email: 'test@test.com',
+        password: 'password'
+    });
+  */
+
+  if (Meteor.users.find().count() === 0) {
+    Accounts.createUser({
+        email: 'lovegrovegeorge@gmail.com',
+        password: 'password'
+    });
+  }
 });

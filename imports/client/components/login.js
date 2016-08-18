@@ -11,8 +11,6 @@ class Login extends Component {
 
   componentDidUpdate() {
 
-    // TODO Need to find a way to better check whether a user is logged in before an initial page renders, React router onEnter perhaps?
-
     // When the page updates if they are logged in then redirect them
     if (this.props.userData.user) {
       browserHistory.push('/');
@@ -21,7 +19,7 @@ class Login extends Component {
 
   render() {
 
-    console.log('Login render props ', this.props);
+    console.log('Login props: ', this.props);
 
     const { fields: { email , password }, handleSubmit, userLogin, userData } = this.props;
 

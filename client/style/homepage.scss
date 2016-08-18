@@ -99,13 +99,19 @@
 .homepage_logout {
 
   @extend %homepage_nav_button;
-  @media screen and (min-width: $small-page) {  top:40px;   }
+  @media screen and (min-width: $small-page) {  top:20px;   }
 } 
 
 .homepage_addproject {
 
   @extend %homepage_nav_button;
-  @media screen and (min-width: $small-page) {  top: 90px;  }
+  @media screen and (min-width: $small-page) {  top: 70px;  }
+} 
+
+.homepage_changepassword {
+
+  @extend %homepage_nav_button;
+  @media screen and (min-width: $small-page) {  top: 115px;  }
 } 
 
 .homepage_login {

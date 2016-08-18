@@ -9,8 +9,6 @@ import PageHeader from './page_header';
 
 class AddProject extends Component {
 
-  // TODO Need to find a good way to redirect for when a user is not logged in, React router onEnter perhaps
-
   onSubmit(props) {
     event.preventDefault();
 
@@ -18,6 +16,11 @@ class AddProject extends Component {
   }
 
   componentDidUpdate() {
+
+    // When the page updates if they are logged out then redirect them
+    if (!this.props.userData.user) {
+      browserHistory.push('/');
+    }
     // When the page updates if they have submitted a form successfully they should be redirected
     if (this.props.projectsData.redirectUser) {
       browserHistory.push('/');

@@ -7,9 +7,6 @@ const initialState = {
 
 const projectsReducer = (state = initialState, action) => {
 
-  //console.log('State: ', state);
-  //console.log('Action: ', action);
-
   switch (action.type) {
   	case 'FETCH_PROJECTS':
   		return Object.assign({}, state, { projects: action.payload, errorMessage: null, redirectUser: false })
