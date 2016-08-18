@@ -17,19 +17,11 @@ export function loadUser() {
 export function userLogin(props) {
   return dispatch => {
     Meteor.loginWithPassword(props.email, props.password, (error)=>{
-      if(error) {
-        console.log('Error logging in: ', error);
-        dispatch({
-          type: 'USER_LOGIN_FAILED',
-          error: error.reason
-        })
-      } else {
-        console.log('User logged in');
-        dispatch({
-          type: 'USER_LOGGED_IN',
-          user: Meteor.user()
-        })
-      }
+      dispatch({
+        type: 'USER_LOGIN',
+        user: Meteor.user(),
+        error: error ? error.reason : null
+      })
     });
   }
 }
@@ -37,19 +29,11 @@ export function userLogin(props) {
 export function userLogout() {
   return dispatch => {
     Meteor.logout((error)=>{
-      if(error) {
-        console.log('Error logging out: ', error);
-        dispatch({
-          type: 'USER_LOGOUT_FAILED',
-          error: error.reason
-        })
-      } else {
-        console.log('User logged out');
-        dispatch({
-          type: 'USER_LOGGED_OUT',
-          payload: null
-        })
-      }
+      dispatch({
+        type: 'USER_LOGOUT',
+        user: error ? Meteor.userId() : null,
+        error: error ? error.reason : null
+      })
     });
   }
 }
@@ -57,20 +41,11 @@ export function userLogout() {
 export function userChangePassword(props) {
   return dispatch => {
     Accounts.changePassword(props.oldPassword, props.newPassword,  (error)=>{
-      if(error) {
-        console.log('Error changing password: ', error);
-        dispatch({
-          type: 'USER_CHANGE_PASSWORD_FAILED',
-          error: error.reason,
-          redirect: false
-        })
-      } else {
-        console.log('User changed password');
-        dispatch({
-          type: 'USER_CHANGE_PASSWORD',
-          redirect: true
-        })
-      }
+      dispatch({
+        type: 'USER_CHANGE_PASSWORD',
+        redirect: error ? false : true,
+        error: error ? error.reason : null
+      })
     });
   }
 }
